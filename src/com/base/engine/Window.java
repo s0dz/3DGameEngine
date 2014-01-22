@@ -1,6 +1,8 @@
 package com.base.engine;
 
 import org.lwjgl.LWJGLException;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 
@@ -14,6 +16,8 @@ public class Window
         {
             Display.setDisplayMode( new DisplayMode( width, height ) );
             Display.create();
+            Keyboard.create();
+            Mouse.create();
         }
         catch( LWJGLException e )
         {
@@ -24,6 +28,13 @@ public class Window
     public static void render()
     {
         Display.update();
+    }
+    
+    public static void dispose()
+    {
+        Display.destroy();
+        Keyboard.destroy();
+        Mouse.destroy();
     }
     
     public static boolean isCloseRequested()
