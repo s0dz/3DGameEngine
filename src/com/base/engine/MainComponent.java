@@ -12,6 +12,7 @@ public class MainComponent
     
     public MainComponent()
     {
+        RenderUtil.initGraphics();
         isRunning = false;
         game = new Game();
     }
@@ -64,10 +65,11 @@ public class MainComponent
                 if(Window.isCloseRequested())
                     stop();
                 
-                Time.setDelta( frameTime );
-                Input.update();
+                Time.setDelta( frameTime );                
                 
                 game.input();
+                Input.update();
+                
                 game.update();
                 
                 if( frameCounter >= Time.SECOND )
@@ -101,6 +103,7 @@ public class MainComponent
     
     private void render()
     {
+        RenderUtil.clearScreen();
         game.render();
         Window.render();
     }
