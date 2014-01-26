@@ -9,6 +9,7 @@ import static org.lwjgl.opengl.GL20.glAttachShader;
 import static org.lwjgl.opengl.GL20.glCompileShader;
 import static org.lwjgl.opengl.GL20.glCreateProgram;
 import static org.lwjgl.opengl.GL20.glCreateShader;
+import static org.lwjgl.opengl.GL20.glGetProgram;
 import static org.lwjgl.opengl.GL20.glGetShader;
 import static org.lwjgl.opengl.GL20.glGetShaderInfoLog;
 import static org.lwjgl.opengl.GL20.glLinkProgram;
@@ -56,7 +57,7 @@ public class Shader
     {
         glLinkProgram( program );
         
-        if( glGetShader( program, GL_LINK_STATUS ) == 0 )
+        if( glGetProgram( program, GL_LINK_STATUS ) == 0 )
         {
             System.err.println( glGetShaderInfoLog( program, 1024 ) );
             System.exit( 1 );
@@ -64,7 +65,7 @@ public class Shader
         
         glValidateProgram( program );
         
-        if( glGetShader( program, GL_VALIDATE_STATUS ) == 0 )
+        if( glGetProgram( program, GL_VALIDATE_STATUS ) == 0 )
         {
             System.err.println( glGetShaderInfoLog( program, 1024 ) );
             System.exit( 1 );
@@ -90,6 +91,6 @@ public class Shader
             System.exit( 1 );
         }
         
-        glAttachShader( shader, program );
+        glAttachShader( program, shader );
     }
 }
