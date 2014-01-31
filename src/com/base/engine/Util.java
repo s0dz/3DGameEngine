@@ -2,6 +2,7 @@ package com.base.engine;
 
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
+import java.util.ArrayList;
 import org.lwjgl.BufferUtils;
 
 public class Util
@@ -52,5 +53,23 @@ public class Util
         buffer.flip();
         
         return buffer;
+    }
+    
+    public static String[] removeEmptyStrings( String[] data )
+    {
+        ArrayList<String> result = new ArrayList<String>();
+        
+        for( int i = 0; i < data.length; i++ )
+        {
+            if( !data[i].equals( "" ) )
+            {
+                result.add( data[i] );
+            }
+        }
+        
+        String[] res = new String[ result.size() ];
+        result.toArray( res );
+        
+        return res;
     }
 }
