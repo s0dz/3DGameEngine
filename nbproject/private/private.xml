@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/s0dz/Documents/NetBeansProjects/3DGameEngine/src/com/base/engine/MainComponent.java</file>
+            <file>file:/C:/Users/s0dz/Documents/NetBeansProjects/3DGameEngine/src/com/base/engine/Transform.java</file>
+            <file>file:/C:/Users/s0dz/Documents/NetBeansProjects/3DGameEngine/src/com/base/engine/RenderUtil.java</file>
+            <file>file:/C:/Users/s0dz/Documents/NetBeansProjects/3DGameEngine/src/com/base/engine/ResourceLoader.java</file>
+            <file>file:/C:/Users/s0dz/Documents/NetBeansProjects/3DGameEngine/res/shaders/basicVertex.vs</file>
+            <file>file:/C:/Users/s0dz/Documents/NetBeansProjects/3DGameEngine/res/shaders/basicFragment.fs</file>
+            <file>file:/C:/Users/s0dz/Documents/NetBeansProjects/3DGameEngine/src/com/base/engine/Shader.java</file>
+            <file>file:/C:/Users/s0dz/Documents/NetBeansProjects/3DGameEngine/src/com/base/engine/Util.java</file>
+            <file>file:/C:/Users/s0dz/Documents/NetBeansProjects/3DGameEngine/src/com/base/engine/Game.java</file>
+            <file>file:/C:/Users/s0dz/Documents/NetBeansProjects/3DGameEngine/src/com/base/engine/Matrix4f.java</file>
+        </group>
+    </open-files>
+</project-private>

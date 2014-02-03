@@ -33,7 +33,7 @@ public class ResourceLoader
     
     public static Mesh loadMesh( String fileName )
     {
-        String[] splitArray = fileName.split( "//." );
+        String[] splitArray = fileName.split( "\\." );
         String ext = splitArray[ splitArray.length - 1 ];
         
         if( !ext.equals( "obj" ) )
@@ -44,7 +44,7 @@ public class ResourceLoader
         }
         
         ArrayList<Vertex> vertices = new ArrayList<Vertex>();
-        ArrayList<Vertex> indices = new ArrayList<Vertex>();
+        ArrayList<Integer> indices = new ArrayList<Integer>();
         
         BufferedReader meshReader = null;
         
@@ -57,9 +57,37 @@ public class ResourceLoader
             {
                 String[] tokens = line.split( " " );
                 tokens = Util.removeEmptyStrings( tokens );
+                
+                if( tokens.length == 0 || tokens[0].equals( "#" ) )
+                {
+                    continue;
+                }
+                else if( tokens[0].equals( "v" ) )
+                {
+                    vertices.add( new Vertex ( new Vector3f( Float.valueOf( tokens[1]),
+                                                             Float.valueOf( tokens[2]),
+                                                             Float.valueOf( tokens[3]) )));
+                }
+                else if( tokens[0].equals( "f" ) )
+                {
+                    indices.add( Integer.parseInt( tokens[1] ) - 1 );
+                    indices.add( Integer.parseInt( tokens[2] ) - 1 );
+                    indices.add( Integer.parseInt( tokens[3] ) - 1 );
+                }
             }
             
             meshReader.close();
+            
+            Mesh res = new Mesh();
+            Vertex[] vertexData = new Vertex[ vertices.size() ];
+            vertices.toArray( vertexData );
+            
+            Integer [] indexData = new Integer[ indices.size() ];
+            indices.toArray( indexData );
+            
+            res.addVertices( vertexData, Util.toIntArray( indexData ) );
+            
+            return res;
         }
         catch( Exception e )
         {
