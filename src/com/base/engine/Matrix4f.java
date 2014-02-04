@@ -76,7 +76,7 @@ public class Matrix4f
         float zRange = zNear - zFar;
         
         m[0][0] = 1.0f / ( tanHalfFOV * ar );   m[0][1] = 0;                            m[0][2] = 0;                            m[0][3] = 0;
-        m[1][0] = 0;                            m[1][1] = 1.0f / ( tanHalfFOV * ar );   m[1][2] = 0;                            m[1][3] = 0;
+        m[1][0] = 0;                            m[1][1] = 1.0f / tanHalfFOV;            m[1][2] = 0;                            m[1][3] = 0;
         m[2][0] = 0;                            m[2][1] = 0;                            m[2][2] = ( -zNear - zFar ) / zRange;   m[2][3] = 2 * zFar * zNear / zRange;
         m[3][0] = 0;                            m[3][1] = 0;                            m[3][2] = 1;                            m[3][3] = 0;
         
