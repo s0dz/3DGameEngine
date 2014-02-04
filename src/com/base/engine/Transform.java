@@ -2,6 +2,16 @@ package com.base.engine;
 
 public class Transform
 {
+    // Clipping distances
+    private static float zNear;
+    private static float zFar;
+    
+    // Screen dimensions
+    private static float width;
+    private static float height;
+    
+    private static float fov;
+    
     private Vector3f translation;
     private Vector3f rotation;
     private Vector3f scale;
@@ -20,6 +30,11 @@ public class Transform
         Matrix4f scaleMatrix = new Matrix4f().initScale( scale.getX(), scale.getY(), scale.getZ() );
         
         return translationMatrix.mul( rotationMatrix.mul( scaleMatrix ) );
+    }
+    
+    public Matrix4f getProjectedTransformation()
+    {
+        return null;
     }
 
     public Vector3f getTranslation()
