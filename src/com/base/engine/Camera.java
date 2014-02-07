@@ -22,6 +22,46 @@ public class Camera
         up.normalize();
         forward.normalize();
     }
+    
+    public void input()
+    {
+        float movAmt = (float)( 10 * Time.getDelta() );
+        float rotAmt = (float)( 100 * Time.getDelta() );
+        
+        if( Input.getKey( Input.KEY_W ) )
+        {
+            move( getForward(), movAmt );
+        }
+        if( Input.getKey( Input.KEY_S ) )
+        {
+            move( getForward(), -movAmt );
+        }
+        if( Input.getKey( Input.KEY_A ) )
+        {
+            move( getLeft(), movAmt );
+        }
+        if( Input.getKey( Input.KEY_D ) )
+        {
+            move( getRight(), movAmt );
+        }
+        
+        if( Input.getKey( Input.KEY_UP ) )
+        {
+            rotateX( -rotAmt );
+        }
+        if( Input.getKey( Input.KEY_DOWN ) )
+        {
+            rotateX( rotAmt );
+        }
+        if( Input.getKey( Input.KEY_LEFT ) )
+        {
+            rotateY( -rotAmt );
+        }
+        if( Input.getKey( Input.KEY_RIGHT ) )
+        {
+            rotateY( rotAmt );
+        }
+    }
 
     public void move( Vector3f dir, float amt )
     {
@@ -54,14 +94,14 @@ public class Camera
     
     public Vector3f getLeft()
     {
-        Vector3f left = up.cross( forward );
+        Vector3f left = forward.cross( up );
         left.normalize();
         return left;
     }
     
     public Vector3f getRight()
     {
-        Vector3f right = forward.cross( up );
+        Vector3f right = up.cross( forward );
         right.normalize();
         return right;
     }
