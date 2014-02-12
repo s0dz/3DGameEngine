@@ -32,15 +32,11 @@ public class Vector3f
         return new Vector3f( x_, y_, z_ );
     }
     
-    public Vector3f normalize()
+    public Vector3f normalized()
     {
         float length = length();
-        
-        x /= length;
-        y /= length;
-        z /= length;
-        
-        return this;
+                
+        return new Vector3f( x / length, y / length, z / length );
     }
     
     public Vector3f rotate( float angle, Vector3f axis )
