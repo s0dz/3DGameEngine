@@ -24,13 +24,25 @@ public class Camera
     }
     
     boolean mouseLocked = false;
-    Vector2f centerPosition = new Vector2f(Window.getWidth()/2, Window.getHeight()/2);
+    Vector2f centerPosition = new Vector2f( Window.getWidth() / 2, Window.getHeight() / 2 );
     
     public void input()
     {
         float sensitivity = 0.5f;
         float movAmt = (float)( 10 * Time.getDelta() );
         // float rotAmt = (float)( 100 * Time.getDelta() );
+        
+        if( Input.getKey( Input.KEY_ESCAPE ) )
+        {
+            Input.setCursor( true );
+            mouseLocked = false;
+        }
+        if( Input.getMouseDown( 0 ) )
+        {
+            Input.setMousePosition( centerPosition );
+            Input.setCursor( false );
+            mouseLocked = true;
+        }
         
         if( Input.getKey( Input.KEY_W ) )
         {

@@ -7,14 +7,26 @@ public class BasicShader extends Shader
         super();
         
         addVertexShader( ResourceLoader.loadShader( "basicVertex.vs" ) );
-        addFragmentShader( ResourceLoader.loadShader( "basicFragment.vs" ) );
+        addFragmentShader( ResourceLoader.loadShader( "basicFragment.fs" ) );
         compileShader();
         
         addUniform( "transform" );
+        addUniform( "color" );
     }
     
-    public void updateUniforms( Matrix4f worldMatrix, Matrix4f projectedMatrix )
+    @Override
+    public void updateUniforms( Matrix4f worldMatrix, Matrix4f projectedMatrix, Material material )
     {
-        setUniform( "transofrm", projectedMatrix );
+        if( material.getTexture() != null )
+        {
+            material.getTexture().bind();
+        }
+        else
+        {
+            RenderUtil.unbindTextures();
+        }
+        
+        setUniform( "transform", projectedMatrix );
+        setUniform( "color", material.getColor() );
     }
 }
