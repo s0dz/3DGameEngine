@@ -37,6 +37,9 @@ public class Util
             buffer.put( vertice.getPos().getZ() );
             buffer.put( vertice.getTexCoord().getX() );
             buffer.put( vertice.getTexCoord().getY() );
+            buffer.put( vertice.getNormal().getX() );
+            buffer.put( vertice.getNormal().getY() );
+            buffer.put( vertice.getNormal().getZ() );
         }
         
         buffer.flip();
