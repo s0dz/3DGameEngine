@@ -27,13 +27,14 @@ public class Game
                                     0, 1, 2,
                                     0, 2, 3 };
         
-        mesh.addVertices( vertices, indices );
+        mesh.addVertices( vertices, indices, true );
         
         transform = new Transform();
         transform.setProjection( 70f, MainComponent.WIDTH, MainComponent.HEIGHT, 0.1f, 1000 );
         transform.setCamera( camera );
         
         PhongShader.setAmbientLight( new Vector3f( 0.1f, 0.1f, 0.1f ) );
+        PhongShader.setDirectionalLight( new DirectionalLight( new BaseLight( new Vector3f( 1, 1, 1 ), 0.8f ), new Vector3f( 1, 1, 1 ) ) );
     }
     
     public void input()

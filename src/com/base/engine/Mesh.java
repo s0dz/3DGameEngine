@@ -71,8 +71,8 @@ public class Mesh
             Vector3f normal = v1.cross( v2 ).normalized();
             
             vertices[i0].setNormal( vertices[i0].getNormal().add( normal ) );
-            vertices[i1].setNormal( vertices[i0].getNormal().add( normal ) );
-            vertices[i2].setNormal( vertices[i0].getNormal().add( normal ) );            
+            vertices[i1].setNormal( vertices[i1].getNormal().add( normal ) );
+            vertices[i2].setNormal( vertices[i2].getNormal().add( normal ) );            
         }
         
         for( int i = 0; i < vertices.length; i++ )
